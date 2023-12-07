@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1>
+        <center>GURU CODE HUB</center>
+    </h1>
+    <h1>
+        <center>ML 5</center>
+    </h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Copy to Clipboard</title>
+</head>
+<body>
+
+    <div>
+        <h3>Section 1</h3>
+        <textarea id="copyText1" rows="4" cols="50">
+            import numpy as nm 
+import matplotlib.pyplot as mtp 
+import pandas as pd</textarea>
+        <button onclick="copyToClipboard('copyText1')">Copy Text</button>
+    </div>
+
+    <div>
+        <h3>Section 2</h3>
+        <textarea id="copyText2" rows="4" cols="50">
+            data_set= pd.read_csv('Salary_Data.csv') </textarea>
+        <button onclick="copyToClipboard('copyText2')">Copy Text</button>
+    </div>
+
+    <div>
+        <h3>Section 3</h3>
+        <textarea id="copyText3" rows="4" cols="50">
+            x= data_set.iloc[:, :-1].values 
+y= data_set.iloc[:, 1].values 
+</textarea>
+        <button onclick="copyToClipboard('copyText3')">Copy Text</button>
+    </div>
+
+
+    <div>
+        <h3>Section 4</h3>
+        <textarea id="copyText4" rows="4" cols="50">
+            # Splitting the dataset into training and test set. 
+from sklearn.model_selection import train_test_split 
+x_train, x_test, y_train, y_test= train_test_split(x, y, test_size= 1/3, random_state=0) </textarea>
+        <button onclick="copyToClipboard('copyText4')">Copy Text</button>
+    </div>
+
+    <div>
+        <h3>Section 5</h3>
+        <textarea id="copyText5" rows="4" cols="50">
+            #Fitting the Simple Linear Regression model to the training dataset 
+from sklearn.linear_model import LinearRegression 
+regressor= LinearRegression() 
+regressor.fit(x_train, y_train)  </textarea>
+        <button onclick="copyToClipboard('copyText5')">Copy Text</button>
+    </div>
+
+
+
+    <div>
+        <h3>Section 6</h3>
+        <textarea id="copyText6" rows="4" cols="50">
+            #Prediction of Test and Training set result 
+            y_pred= regressor.predict(x_test) 
+            x_pred= regressor.predict(x_train) </textarea>
+        <button onclick="copyToClipboard('copyText6')">Copy Text</button>
+    </div>
+
+
+
+    <div>
+        <h3>Section 7</h3>
+        <textarea id="copyText7" rows="4" cols="50">
+            mtp.scatter(x_train, y_train, color="green") 
+mtp.plot(x_train, x_pred, color="red") 
+mtp.title("Salary vs Experience (Training Dataset)") 
+mtp.xlabel("Years of Experience") 
+mtp.ylabel("Salary(In Rupees)") 
+mtp.show() </textarea>
+        <button onclick="copyToClipboard('copyText7')">Copy Text</button>
+    </div>
+
+
+
+    <div>
+        <h3>Section 8</h3>
+        <textarea id="copyText8" rows="4" cols="50">
+            #visualizing the Test set results 
+            mtp.scatter(x_test, y_test, color="blue") 
+            mtp.plot(x_train, x_pred, color="red") 
+            mtp.title("Salary vs Experience (Test Dataset)") 
+            mtp.xlabel("Years of Experience") 
+            mtp.ylabel("Salary(In Rupees)") 
+            mtp.show() </textarea>
+        <button onclick="copyToClipboard('copyText8')">Copy Text</button>
+    </div>
+
+
+
+
+    <!-- Add more sections as needed -->
+
+    <script>
+        function copyToClipboard(elementId) {
+            var copyText = document.getElementById(elementId);
+            copyText.select();
+            document.execCommand("copy");
+            alert("Text copied to clipboard: " + copyText.value);
+        }
+    </script>
+
+</body>
+</html>
